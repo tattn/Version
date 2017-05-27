@@ -13,6 +13,7 @@ class VersionTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        Version.bundle = Bundle(for: VersionTests.self)
     }
 
     override func tearDown() {
@@ -68,5 +69,13 @@ class VersionTests: XCTestCase {
     func testStringInterpolation() {
         let version: Version = "1.2.3"
         XCTAssertEqual("\(version)", "1.2.3")
+    }
+
+    func testCurrentVersion() {
+        XCTAssertEqual(Version.current, "1.0")
+    }
+
+    func testCurrentBuildNumber() {
+        XCTAssertEqual(Version.currentBuildNumber, "1")
     }
 }

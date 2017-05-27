@@ -12,6 +12,12 @@ public struct Version {
 
     public let components: [Int]
 
+    static var bundle: Bundle = .main
+
+    public init() {
+        components = []
+    }
+
     public init?(_ versionString: String) {
         let separatedStrings = versionString.components(separatedBy: ".")
         components = separatedStrings.flatMap { Int($0) }
@@ -20,6 +26,24 @@ public struct Version {
         guard !isEmpty, separatedStrings.count == count else {
             return nil
         }
+    }
+}
+
+extension Version {
+    public static var current: Version {
+        guard let versionString = bundle.infoDictionary?["CFBundleShortVersionString"] as? String,
+            let version = Version(versionString) else {
+                fatalError("CFBundleShortVersionString is not a valid version string")
+        }
+        return version
+    }
+
+    public static var currentBuildNumber: Version {
+        guard let versionString = bundle.infoDictionary?["CFBundleVersion"] as? String,
+            let version = Version(versionString) else {
+                fatalError("CFBundleVersion is not a valid version string")
+        }
+        return version
     }
 }
 
