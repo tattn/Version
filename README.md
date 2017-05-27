@@ -36,6 +36,14 @@ let rhs: Version = "2.2.2"
 lhs > rhs // => true
 ```
 
+## Current version
+
+```swift
+Version.current            // => 1.0
+Version.currentBuildNumber // 1
+```
+
+
 ## Adapt a Collection protocol
 
 Version adapts a Collection protocol.
