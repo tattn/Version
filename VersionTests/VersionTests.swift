@@ -57,7 +57,7 @@ class VersionTests: XCTestCase {
     }
 
     func testNotAVersionString() {
-        let version = Version("Hello🐱")
+        let version = Version(version: "Hello🐱")
         XCTAssertNil(version)
     }
 
