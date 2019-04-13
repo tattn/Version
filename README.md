@@ -4,7 +4,7 @@ Version
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![Platform](https://img.shields.io/badge/platform-iOS-yellow.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-[![Swift Version](https://img.shields.io/badge/Swift-3-F16D39.svg)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Swift-5-F16D39.svg)](https://developer.apple.com/swift)
 
 Version is a swifty version accessor.
 
@@ -13,10 +13,10 @@ Version is a swifty version accessor.
 ## Initialization
 
 ```swift
-let ver1 = Version("1.1.1") // the type is Version?
+let ver1 = Version(version: "1.1.1") // the type is Version?
 let ver2: Version = "2.2.2" // the type is Version
 
-let ver3 = Version("not a version string") // => nil
+let ver3 = Version(version: "not a version string") // => nil
 let ver4: Version = "not a version string" // fatalError
 ```
 
